@@ -4,18 +4,14 @@
 
 
 int main() {
-	Node *pHead = NULL;	//set pHead to NULL initially
-
-	int i;
-	for(i = 0; i < 10; i++) {
-		insertLL(&pHead, i);		//adds 10 new objects to Linked List and orders them
-	}
-	//prints contents of Linked List
-	printLL(pHead);
+	NodeT *pRoot = insertT(pRoot, 30);
+	pRoot = insertT(pRoot, 20);
+	pRoot = insertT(pRoot, 40);
+	pRoot = insertT(pRoot, 50);
+	pRoot = insertT(pRoot, 45);
+	pRoot = insertT(pRoot, 10);
 	
-	printf("Number of Nodes: %d\n", countNodes(pHead));
-	printf("Sum of Nodes: %d\n", sumLL(pHead));
-
+	printT(pRoot, 0);
 
 	return 0;
 }

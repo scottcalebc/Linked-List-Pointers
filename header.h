@@ -20,10 +20,11 @@ Notes:
 
 /***** typedefs *****/
 //Node
-typedef struct Node{
+typedef struct NodeT{
 	int iInfo;					//information to store into the array
-	struct Node *pNext;	//Pointer for next item in array
-} Node;
+	struct NodeT *pLeft;				//Pointer for next item in array
+	struct NodeT *pRight;
+} NodeT;
 
 
 
@@ -37,15 +38,12 @@ typedef struct Node{
 /****prototypes*****/
 
 //linked list prototypes
-void initializeFreeLL(Node nodeM[], int iNumElem, int *piFree);
-Node *searchLL(Node *pHead, int iMatch, Node **ppPrecedes);
-void printLL(Node *pHead);
-Node *insertLL(Node **pHead, int iNewInfo);
-Node *allocateNode(int iNewInfo);
-void removeLL(Node **pHead, int iMatch);
-void freeNode(Node *p);
-int sumLL(Node *pHead);
-int countNodes(Node *pHead);
+NodeT *searchT(NodeT *pRoot, int iMatch);
+void printT(NodeT *pRoot, int iIndent);
+NodeT *insertT(NodeT *p, int iNewInfo);
+NodeT *allocateNodeT(int iNewInfo);
+int sumT(NodeT *pHead);
+int countT(NodeT *pHead);
 
 
 //other prototypes
