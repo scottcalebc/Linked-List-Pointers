@@ -21,7 +21,7 @@ Notes:
 /***** typedefs *****/
 //Node
 typedef struct StackNode{
-	int iInfo;					//information to store into the array
+	char cItem;					//information to store into the array
 	struct StackNode *pNext;	//Pointer for next item in array
 } StackNode;
 
@@ -42,10 +42,10 @@ typedef struct StackNode{
 
 //Stack w/ LL prototypes
 void display(StackNode*);
-void push(StackNode**,int);
-StackNode* newNode(int);
+void push(StackNode**,char);
+StackNode* newNode(char);
 int isEmpty(StackNode*);
-int pop(StackNode**);
+char pop(StackNode**);
 int stackSize(StackNode*);
 
 

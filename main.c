@@ -6,19 +6,35 @@
 int main()
 {
     StackNode *root = NULL;
+    char str[20];
 
-    push(&root, 1);
-    push(&root, 2);
-    push(&root, 3);
+    printf("Enter a string to reverse: ");
+    scanf("%s", str);
 
-    printf("Size of Stack is %d\n", stackSize(root));
+    printf("%s\n", str);
 
-    int i = pop(&root);
+    char* c = &str[0];
 
-    push(&root, 4);
-    push(&root, i+5);
+    while(*c) 
+    {
+        push(&root, *c);
+        *c++;
+    }
 
-    display(root);
+    
+    int i;
+    int max = stackSize(root);
+    char *pszRev = (char*)malloc(max+1);
+    char *pCnt = pszRev;
+    
+    for(i = 0; i < max; i++) {
+        *pCnt = pop(&root);
+        *pCnt++;
+    }
+    *pCnt = '\0';
+
+    printf("%s\n", pszRev);
+    
 
     return 0;
 }

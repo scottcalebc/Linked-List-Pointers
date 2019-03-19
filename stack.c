@@ -12,20 +12,20 @@ void exitError(char *pszMessage, char *pszDiagnosticInfo)
 }
 
 
-StackNode* newNode(int iInfo) 
+StackNode* newNode(char cItem) 
 {
     StackNode* node = (StackNode*)malloc(sizeof(StackNode));
-    node->iInfo = iInfo;
+    node->cItem = cItem;
     node->pNext = NULL;
     return node;
 }
 
-void push(StackNode** root, int iInfo)
+void push(StackNode** root, char cItem)
 {
-    StackNode* new = newNode(iInfo);
+    StackNode* new = newNode(cItem);
     new->pNext = *root;
     *root = new;
-    printf("%d pushed to Stack\n", new->iInfo);
+    printf("%c pushed to Stack\n", new->cItem);
 }
 
 void display(StackNode* root)
@@ -39,11 +39,12 @@ void display(StackNode* root)
     printf("Stack: \n");
     for(p = root; p != NULL; p = p->pNext)
     {
-        printf("%5d\n", p->iInfo);
+        printf("%c", p->cItem);
     }
+    printf("\n");
 }
 
-int pop(StackNode** root)
+char pop(StackNode** root)
 {
     if (isEmpty(*root)) 
     {
@@ -52,7 +53,7 @@ int pop(StackNode** root)
     }
     StackNode* node = *root;
     *root = node->pNext;
-    int popped = node->iInfo;
+    char popped = node->cItem;
     free(node);
     return popped;
 }
